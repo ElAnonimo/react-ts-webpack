@@ -1,4 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { App } from './components/App';
+import './styles/style.scss';
 
-ReactDOM.render(<h1>Hi there</h1>, document.getElementById('root'));
+ReactDOM.render(<App name='Mikki' />, document.getElementById('root'));
