@@ -54,11 +54,11 @@ export class App extends React.Component<{}, IState> {
 	public renderTasks():JSX.Element[] {
 		if (this.state.tasks.length) {
 			return this.state.tasks.map((task: ITask) => (
-				<div key={task.id}>
-					<p>Task Name: {task.value}</p>
-					<p>Completed: {task.completed ? 'Yes': 'No'}</p>
+				<div key={task.id} className='tdl-task'>
+					<p className={task.completed ? 'is-completed': ''}>Task Name: {task.value}</p>
+					<p className={task.completed ? 'is-completed': ''}>Completed: {task.completed ? 'Yes': 'No'}</p>
 					<button onClick={() => this.handleDeleteClick(task.id)}>Delete</button>
-					<button onClick={() => this.toggleDoneClick(task.id)}>Done/Undone</button>
+					<button onClick={() => this.toggleDoneClick(task.id)}>{task.completed ? 'Undo' : 'Done'}</button>
 				</div>
 			));
 		}
@@ -71,6 +71,7 @@ export class App extends React.Component<{}, IState> {
 				<form onSubmit={(evt) => this.handleSubmit(evt)}>
 					<input
 						type='text'
+						className='tdl-input'
 						placeholder='Add a Task'
 						value={this.state.currentTask}
 						onChange={(evt) => this.handleChange(evt)}
