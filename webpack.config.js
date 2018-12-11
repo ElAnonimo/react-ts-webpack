@@ -19,13 +19,17 @@ module.exports = {
 				loader: 'awesome-typescript-loader'
 			},
 			{
-				enforce: 'pre',
 				test: /\.js$/,
-				loader: 'source-map-loader'
+				loader: 'source-map-loader',
+				enforce: 'pre'
 			},
 			{
 				test: /\.scss$/,
-				loader: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+				loader: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'sass-loader'
+				]
 			}
 		]
 	},
